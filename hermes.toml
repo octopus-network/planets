@@ -1,0 +1,52 @@
+[global]
+#strategy = 'packets'
+strategy='all'
+log_level = 'info'
+
+[[chains]]
+id = 'earth'
+rpc_addr = 'http://127.0.0.1:26657'
+grpc_addr = 'http://127.0.0.1:9090'
+websocket_addr = 'ws://127.0.0.1:26657/websocket'
+rpc_timeout = '10s'
+account_prefix = 'cosmos'
+key_name = 'testkey'
+store_prefix = 'ibc'
+max_gas = 2000000
+gas_price = { price = 0.001, denom = 'stake' }
+gas_adjustment = 0.1
+clock_drift = '5s'
+trusting_period = '14days'
+trust_threshold = { numerator = '1', denominator = '3' }
+
+[[chains]]
+id = 'mars'
+rpc_addr = 'http://127.0.0.1:26557'
+grpc_addr = 'http://127.0.0.1:9091'
+websocket_addr = 'ws://127.0.0.1:26557/websocket'
+rpc_timeout = '10s'
+account_prefix = 'cosmos'
+key_name = 'testkey'
+store_prefix = 'ibc'
+max_gas = 2000000
+gas_price = { price = 0.001, denom = 'stake' }
+gas_adjustment = 0.1
+clock_drift = '5s'
+trusting_period = '14days'
+trust_threshold = { numerator = '1', denominator = '3' }
+
+[[chains]]
+id = 'moon'
+rpc_addr = 'http://127.0.0.1:26457'
+grpc_addr = 'http://127.0.0.1:9092'
+websocket_addr = 'ws://127.0.0.1:26457/websocket'
+rpc_timeout = '10s'
+account_prefix = 'cosmos'
+key_name = 'testkey'
+store_prefix = 'ibc'
+max_gas = 2000000
+gas_price = { price = 0.001, denom = 'stake' }
+gas_adjustment = 0.1
+clock_drift = '5s'
+trusting_period = '14days'
+trust_threshold = { numerator = '1', denominator = '3' }

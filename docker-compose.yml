@@ -1,0 +1,46 @@
+version: "3"
+services:
+  earth:
+    image: starport/cli
+    restart: always
+    user: root
+    environment:
+      GOPROXY: "https://goproxy.cn"
+
+    ports:
+      - 26657:26657
+      - 1317:1317
+      - 4500:4500
+      - 9090:9090
+      - 12345:12345
+      - 26659:26659
+      - 6060:6060
+      - 8080:8080
+
+    #tty: true
+    volumes:
+      - ./mars/:/apps/mars
+    entrypoint: starport chain serve -v -p /apps/mars -c /apps/mars/earth.yml
+
+  mars:
+    image: starport/cli
+    restart: always
+    user: root
+    environment:
+      GOPROXY: "https://goproxy.cn"
+
+    ports:
+      - 26557:26557
+      - 1318:1318
+      - 4600:4600
+      - 9091:9091
+      - 12346:12346
+      - 26658:26658
+      - 6061:6061
+      - 8081:8081
+
+    #tty: true
+    volumes:
+      - ./mars/:/apps/mars
+    #entrypoint: starport chain serve -v -p /apps/mars -c /apps/mars/mars.yml
+    command: chain serve -v -p /apps/mars -c /apps/mars/mars.yml

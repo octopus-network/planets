@@ -1,0 +1,31 @@
+accounts:
+  - name: mars-guardian
+    coins: ["10000000stake", "1000000000coinb"]
+  - name: bob
+    coins: ["1000000stake", "1000000coinb"]
+    address: "chainb1pnv0elanhs8qcq2sst0jssak8magjpj3ggq45x"
+validator:
+  name: mars-guardian
+  staked: "1000000stake"
+build:
+  binary: mars
+client:
+  vuex:
+    path: "vue/src/store"
+genesis:
+  chain_id: "mars"
+init:
+  home: "./.mars"
+host:
+  rpc: ":26557"
+  api: ":1318"
+  grpc: ":9091"
+  dev-ui: ":12346"
+  p2p: ":26658"
+  prof: ":6061"
+  frontend: ":8081"
+faucet:
+  name: faucet
+  coins: ["100token", "5foo"]
+  coins_max: ["2000token", "1000foo"]
+  port: 4600
