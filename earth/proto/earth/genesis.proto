@@ -1,0 +1,11 @@
+syntax = "proto3";
+package octopusnetwork.earth.earth;
+
+// this line is used by starport scaffolding # genesis/proto/import
+
+option go_package = "github.com/octopus-network/planets/earth/x/earth/types";
+
+// GenesisState defines the earth module's genesis state.
+message GenesisState {
+    // this line is used by starport scaffolding # genesis/proto/state
+}

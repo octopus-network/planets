@@ -1,0 +1,38 @@
+accounts:
+  - name: alice
+    coins: ["20000atom", "200000000stake"]
+    address: "cosmos1xh2jvz9ecty8qdctlgscmys2dr5gz729k0l7x4"
+  - name: earth-validator
+    coins: ["10000atom", "100000000stake"]
+validator:
+  name: earth-validator
+  staked: "100000000stake"
+client:
+  openapi:
+    path: "docs/static/openapi.yml"
+  vuex:
+    path: "vue/src/store"
+faucet:
+  name: earth-validator
+  coins: ["5atom", "100000stake"]
+  port: 4500
+
+build:
+  binary: earth
+
+genesis:
+  chain_id: "earth"
+
+init:
+  home: "./.earth"
+
+host:
+  rpc: "0.0.0.0:26657"
+  api: "0.0.0.0:1317"
+  #grpc: "0.0.0.0:9090"
+  grpc: "0.0.0.0:9095"
+  grpc-web: "0.0.0.0:9096"
+  dev-ui: "0.0.0.0:12345"
+  p2p: "0.0.0.0:26659"
+  prof: "0.0.0.0:6060"
+  frontend: "0.0.0.0:8080"

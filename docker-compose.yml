@@ -2,6 +2,7 @@ version: "3"
 services:
   earth:
     image: starport/cli
+    container_name: earth
     restart: always
     user: root
     environment:
@@ -11,19 +12,23 @@ services:
       - 26657:26657
       - 1317:1317
       - 4500:4500
-      - 9090:9090
+      - 9095:9095
+      - 9096:9096
       - 12345:12345
       - 26659:26659
       - 6060:6060
       - 8080:8080
-
+    networks: 
+      - cosmos
     #tty: true
     volumes:
-      - ./mars/:/apps/mars
-    entrypoint: starport chain serve -v -p /apps/mars -c /apps/mars/earth.yml
+      - ./earth:/apps/
+    #entrypoint: starport chain serve -v -p /apps -c /apps/config.yml 
+    entrypoint: starport chain serve -v 
 
   mars:
     image: starport/cli
+    container_name: mars
     restart: always
     user: root
     environment:
@@ -33,14 +38,20 @@ services:
       - 26557:26557
       - 1318:1318
       - 4600:4600
-      - 9091:9091
+      - 9097:9097
+      - 9098:9098
       - 12346:12346
       - 26658:26658
       - 6061:6061
       - 8081:8081
-
+    networks: 
+      - cosmos
     #tty: true
     volumes:
-      - ./mars/:/apps/mars
-    #entrypoint: starport chain serve -v -p /apps/mars -c /apps/mars/mars.yml
-    command: chain serve -v -p /apps/mars -c /apps/mars/mars.yml
+      - ./mars:/apps/
+    #command: chain serve -v -p /apps -c /apps/config.yml 
+    entrypoint: starport chain serve -v -p /apps -c /apps/config.yml
+
+networks:
+  cosmos:
+    driver: bridge
